@@ -6,7 +6,7 @@
 /*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:05:42 by mwallage          #+#    #+#             */
-/*   Updated: 2023/06/01 16:56:42 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:51:11 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 char	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
-/* str function */
+/* int str function */
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
+/* str functions */
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -77,12 +78,9 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /* get_next_line */
 char	*get_next_line(int fd);
-char	*append_buffer_to_line(char *buffer, char *oldline);
-int		lastchar(char *line);
+int		ft_lastchar(char *line);
 int		ft_linelen(char *s);
 void	*free_strs(char **buffer, char *line);
 void	update_buffer(char *buffer);
-char	*init_buffer(char *buffer);
-char	*init_line(char *buffer);
 
 #endif

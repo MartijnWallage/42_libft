@@ -6,7 +6,7 @@
 /*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:58:28 by mwallage          #+#    #+#             */
-/*   Updated: 2023/06/01 16:44:15 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:51:22 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_linelen(char *s)
 	return (i);
 }
 
-int	lastchar(char *line)
+int	ft_lastchar(char *line)
 {
 	int	linelen;
 

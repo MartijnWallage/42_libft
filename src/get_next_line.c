@@ -6,13 +6,13 @@
 /*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:12:45 by mwallage          #+#    #+#             */
-/*   Updated: 2023/06/01 16:52:40 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:51:41 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-char	*append_buffer_to_line(char *buffer, char *oldline)
+static char	*append_buffer_to_line(char *buffer, char *oldline)
 {
 	int		linelen_buffer;
 	int		linelen_oldline;
@@ -37,7 +37,7 @@ char	*append_buffer_to_line(char *buffer, char *oldline)
 	return (newline);
 }
 
-char	*init_line(char *buffer)
+static char	*init_line(char *buffer)
 {
 	int		linelen;
 	int		i;
@@ -55,7 +55,7 @@ char	*init_line(char *buffer)
 	return (line);
 }
 
-char	*init_buffer(char *buffer)
+static char	*init_buffer(char *buffer)
 {
 	int	i;
 
@@ -86,7 +86,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = init_line(buffer[fd]);
 	bytes_read = 1;
-	while (bytes_read > 0 && line && line[lastchar(line)] != '\n')
+	while (bytes_read > 0 && line && line[ft_lastchar(line)] != '\n')
 	{
 		bytes_read = read(fd, buffer[fd], BUFFER_SIZE);
 		if (bytes_read < 0)
