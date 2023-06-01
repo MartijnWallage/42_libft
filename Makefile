@@ -3,48 +3,53 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mwallage <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 17:51:07 by mwallage          #+#    #+#              #
-#    Updated: 2023/05/10 15:30:01 by mwallage         ###   ########.fr        #
+#    Updated: 2023/06/01 16:46:24 by mwallage         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC := cc
-AR := ar
-CFLAGS := -Wall -Werror -Wextra
-
-SRC := ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-	ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-	ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
-	ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
-	ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
-	ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-SRC2 := ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-	ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
-OBJ := $(SRC:.c=.o)
-OBJ2 := $(SRC2:.c=.o)
-NAME := libft.a
+CC		:= cc
+AR		:= ar
+CFLAGS	:= -Wall -Werror -Wextra
+SRCDIR	:= src
+OBJDIR	:= obj
+SRC 	:= $(SRCDIR)/ft_isalpha.c $(SRCDIR)/ft_isdigit.c $(SRCDIR)/ft_isalnum.c \
+		$(SRCDIR)/ft_isascii.c $(SRCDIR)/ft_isprint.c $(SRCDIR)/ft_strlen.c \
+		$(SRCDIR)/ft_memset.c $(SRCDIR)/ft_bzero.c $(SRCDIR)/ft_memcpy.c \
+		$(SRCDIR)/ft_memmove.c $(SRCDIR)/ft_strlcpy.c $(SRCDIR)/ft_strlcat.c \
+		$(SRCDIR)/ft_toupper.c $(SRCDIR)/ft_tolower.c $(SRCDIR)/ft_strchr.c \
+		$(SRCDIR)/ft_strrchr.c $(SRCDIR)/ft_strncmp.c $(SRCDIR)/ft_memchr.c \
+		$(SRCDIR)/ft_memcmp.c $(SRCDIR)/ft_strnstr.c $(SRCDIR)/ft_atoi.c \
+		$(SRCDIR)/ft_calloc.c $(SRCDIR)/ft_strdup.c $(SRCDIR)/ft_substr.c \
+		$(SRCDIR)/ft_strjoin.c $(SRCDIR)/ft_strtrim.c $(SRCDIR)/ft_split.c \
+		$(SRCDIR)/ft_itoa.c $(SRCDIR)/ft_strmapi.c $(SRCDIR)/ft_striteri.c \
+		$(SRCDIR)/ft_putchar_fd.c $(SRCDIR)/ft_putstr_fd.c $(SRCDIR)/ft_putendl_fd.c \
+		$(SRCDIR)/ft_putnbr_fd.c $(SRCDIR)/ft_lstnew.c $(SRCDIR)/ft_lstadd_front.c \
+		$(SRCDIR)/ft_lstsize.c $(SRCDIR)/ft_lstlast.c $(SRCDIR)/ft_lstadd_back.c \
+		$(SRCDIR)/ft_lstdelone.c $(SRCDIR)/ft_lstclear.c $(SRCDIR)/ft_lstiter.c \
+		$(SRCDIR)/ft_lstmap.c $(SRCDIR)/get_next_line.c $(SRCDIR)/get_next_line_utils.c
+OBJ		:= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+NAME	:= libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) rcs $@ $^
+$(NAME): $(OBJDIR) $(OBJ)
+	$(AR) rcs $@ $(OBJ)
 
-%.o: %.c
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+	
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-bonus: $(NAME) $(OBJ) $(OBJ2)
-	$(AR) rcs $^
 	
 clean:
-	rm -f $(OBJ) $(OBJ2)
+	rm -rf $(OBJDIR)
 
 fclean: clean 
 	rm -f $(NAME)
 
 re: fclean $(NAME)
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
