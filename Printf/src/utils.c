@@ -1,25 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 14:07:52 by mwallage          #+#    #+#             */
-/*   Updated: 2023/06/14 17:20:22 by mwallage         ###   ########.fr       */
+/*   Created: 2023/05/25 18:22:36 by mwallage          #+#    #+#             */
+/*   Updated: 2023/05/30 19:33:35 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
+#include "../inc/ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+unsigned int	ft_strlen(const char *str)
 {
-	size_t	size;
+	int	len;
 
-	if (s == NULL)
+	if (str == NULL)
 		return (0);
-	size = 0;
-	while (s[size])
-		size++;
-	return (size);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+int	is_in_set(const char c, const char *set)
+{
+	while (*set && *set != c)
+		set++;
+	return (*set == c);
+}
+
+int	ft_min(int a, int b)
+{
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+int	ft_max(int a, int b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b);
 }

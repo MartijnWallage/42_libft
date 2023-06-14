@@ -6,7 +6,7 @@
 #    By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 17:51:07 by mwallage          #+#    #+#              #
-#    Updated: 2023/06/01 16:46:24 by mwallage         ###   ########.fr        #
+#    Updated: 2023/06/14 18:01:09 by mwallage         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,14 @@ SRC 	:= $(SRCDIR)/ft_isalpha.c $(SRCDIR)/ft_isdigit.c $(SRCDIR)/ft_isalnum.c \
 		$(SRCDIR)/ft_lstmap.c $(SRCDIR)/get_next_line.c $(SRCDIR)/get_next_line_utils.c
 OBJ		:= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 NAME	:= libft.a
+PRINTFDIR	:=	Printf
+PRINTF	:= $(PRINTFDIR)/libftprintf.a
 
 all: $(NAME)
 
 $(NAME): $(OBJDIR) $(OBJ)
+	make -C $(PRINTFDIR)
+	mv $(PRINTF) ./$(NAME)
 	$(AR) rcs $@ $(OBJ)
 
 $(OBJDIR):
@@ -45,10 +49,12 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
-	rm -rf $(OBJDIR)
+	rm -rf $(OBJDIR) 
+	make clean -C $(PRINTFDIR)
 
 fclean: clean 
-	rm -f $(NAME)
+	rm -f $(NAME) 
+	make fclean -C $(PRINTFDIR)
 
 re: fclean $(NAME)
 

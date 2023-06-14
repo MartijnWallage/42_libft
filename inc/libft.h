@@ -6,16 +6,18 @@
 /*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:05:42 by mwallage          #+#    #+#             */
-/*   Updated: 2023/06/01 17:51:11 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:52:57 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdarg.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 64
@@ -26,6 +28,25 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+# define DEC		"0123456789"
+# define HEX_LOWER	"0123456789abcdef"
+# define HEX_UPPER	"0123456789ABCDEF"
+
+typedef struct s_print
+{
+	va_list	args;
+	int		hash;
+	int		width;
+	int		precision;
+	char	padding;
+	int		point;
+	int		dash;
+	int		len;
+	int		sign;
+	int		space;
+	int		neg;
+}				t_print;
 
 /* ASCII functions*/
 int		ft_isalpha(int c);
@@ -82,5 +103,7 @@ int		ft_lastchar(char *line);
 int		ft_linelen(char *s);
 void	*free_strs(char **buffer, char *line);
 void	update_buffer(char *buffer);
+/*	ft_printf	*/
+int		ft_printf(const char *format, ...);
 
 #endif
