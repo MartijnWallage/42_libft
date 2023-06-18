@@ -6,7 +6,7 @@
 /*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:02:35 by mwallage          #+#    #+#             */
-/*   Updated: 2023/06/01 16:52:12 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/06/18 18:31:47 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	int		i;
 
+	if (set == NULL || s1 == NULL)
+		return ((char *) s1);
 	prep(s1, set, &begin, &end);
 	if (begin >= end)
 		trim = malloc(1);
