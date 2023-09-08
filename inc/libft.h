@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <sys/select.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 64
