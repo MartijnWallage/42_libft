@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mwallage <mwallage@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:12:45 by mwallage          #+#    #+#             */
-/*   Updated: 2023/06/01 17:51:41 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:48:38 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ static char	*init_buffer(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[__FD_SETSIZE];
+	static char	*buffer[24];
 	char		*line;
 	ssize_t		bytes_read;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd >= __FD_SETSIZE)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd >= 24)
 		return (NULL);
 	buffer[fd] = init_buffer(buffer[fd]);
 	if (buffer[fd] == NULL)
