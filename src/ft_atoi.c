@@ -6,7 +6,7 @@
 /*   By: mwallage <mwallage@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:33:11 by mwallage          #+#    #+#             */
-/*   Updated: 2023/08/31 12:02:26 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:30:40 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi_base(const char *nptr, const char *base)
 {
 	int	neg;
 	int	result;
- 	int	nbase;	
+	int	nbase;	
 
 	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n' || *nptr == '\v'
 		|| *nptr == '\f' || *nptr == '\r')
