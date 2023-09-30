@@ -6,7 +6,7 @@
 /*   By: mwallage <mwallage@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:12:45 by mwallage          #+#    #+#             */
-/*   Updated: 2023/09/19 15:48:38 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/09/30 14:50:10 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ static char	*init_buffer(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[24];
+	static char	*buffer[__FD_SETSIZE];
 	char		*line;
 	ssize_t		bytes_read;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd >= 24)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd >= __FD_SETSIZE)
 		return (NULL);
 	buffer[fd] = init_buffer(buffer[fd]);
 	if (buffer[fd] == NULL)
