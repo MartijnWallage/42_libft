@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mwallage <mwallage@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:05:42 by mwallage          #+#    #+#             */
-/*   Updated: 2023/07/13 15:29:27 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/10/15 20:17:35 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 64
+# endif
+
+# ifndef __FD_SETSIZE
+#	define __FD_SETSIZE 24
 # endif
 
 typedef struct s_list
