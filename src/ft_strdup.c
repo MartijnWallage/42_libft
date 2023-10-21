@@ -18,10 +18,10 @@ char	*ft_strdup(const char *s)
 	int		size;
 
 	size = 0;
-	while (s[size])
+	while (s && s[size])
 		size++;
 	size++;
-	copy = (char *) malloc(size * sizeof(char));
+	copy = malloc((size + 1) * sizeof(char));
 	if (copy == NULL)
 		return (NULL);
 	while (size--)
