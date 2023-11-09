@@ -24,7 +24,7 @@
 # endif
 
 # ifndef __FD_SETSIZE
-#	define __FD_SETSIZE 24
+#  define __FD_SETSIZE 24
 # endif
 
 typedef struct s_list
