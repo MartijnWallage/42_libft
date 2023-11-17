@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mwallage <mwallage@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:07:26 by mwallage          #+#    #+#             */
-/*   Updated: 2023/06/01 16:51:55 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:17:06 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			return ((char *) big);
 		big++;
 		len--;
+	}
+	return (NULL);
+}
+
+char	*ft_grep(char **tab, char *word)
+{
+	if (!tab || !word)
+		return (NULL);
+	if (*word == 0)
+		return (tab[0]);
+	while (*tab)
+	{
+		if (match(*tab, word, ft_strlen(*tab)))
+			return ((char *)*tab);
+		(*tab)++; 
 	}
 	return (NULL);
 }
