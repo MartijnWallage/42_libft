@@ -6,13 +6,13 @@
 /*   By: mwallage <mwallage@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:07:26 by mwallage          #+#    #+#             */
-/*   Updated: 2023/11/17 21:42:45 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/11/17 22:19:06 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-static int	match(const char *big, const char *little, size_t len)
+int	ft_match(const char *big, const char *little, size_t len)
 {
 	while (len && *big == *little)
 	{
@@ -31,7 +31,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char *) big);
 	while (len && *big)
 	{
-		if (match(big, little, len))
+		if (ft_match(big, little, len))
 			return ((char *) big);
 		big++;
 		len--;
@@ -45,7 +45,7 @@ char	*ft_grep(char **tab, char *word)
 		return (tab[0]);
 	while (*tab)
 	{
-		if (match(*tab, word, ft_strlen(*tab)))
+		if (ft_match(*tab, word, ft_strlen(*tab)))
 			return (*tab);
 		tab++;
 	}
