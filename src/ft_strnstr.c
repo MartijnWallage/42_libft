@@ -6,7 +6,7 @@
 /*   By: mwallage <mwallage@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:07:26 by mwallage          #+#    #+#             */
-/*   Updated: 2023/11/17 21:17:06 by mwallage         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:38:51 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_grep(char **tab, char *word)
 	{
 		if (match(*tab, word, ft_strlen(*tab)))
 			return ((char *)*tab);
-		(*tab)++; 
+		tab++;
 	}
 	return (NULL);
 }
