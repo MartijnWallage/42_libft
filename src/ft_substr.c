@@ -12,14 +12,6 @@
 
 #include "../inc/libft.h"
 
-static size_t	printf_min(size_t a, size_t b)
-{
-	if (a <= b)
-		return (a);
-	else
-		return (b);
-}
-
 static char	*empty_string(void)
 {
 	char	*str;
@@ -43,7 +35,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	slen = ft_strlen(s);
 	if (start >= slen)
 		return (empty_string());
-	sublen = printf_min(len, slen - start);
+	sublen = ft_min(len, slen - start);
 	substr = malloc(sublen + 1);
 	if (substr == NULL)
 		return (NULL);
