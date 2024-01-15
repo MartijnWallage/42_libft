@@ -6,7 +6,7 @@
 /*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:42:44 by mwallage          #+#    #+#             */
-/*   Updated: 2024/01/15 15:37:07 by mwallage         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:38:30 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	unsigned char	*str1;
 	unsigned char	*str2;
 
-	if (!s1 && s2 || s1 && !s2)
+	if ((!s1 && s2) || (s1 && !s2))
 		return (1);
 	if (!s1 && !s2)
 		return (0);
