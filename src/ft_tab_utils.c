@@ -1,53 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_tab_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwallage <mwallage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:07:26 by mwallage          #+#    #+#             */
-/*   Updated: 2024/02/09 16:26:14 by mwallage         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:35:26 by mwallage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-int	ft_match(const char *big, const char *little, size_t len)
+void	*ft_freetab(void **tab)
 {
-	while (len && *big == *little)
-	{
-		if (*big == '\0')
-			return (1);
-		big++;
-		little++;
-		len--;
-	}
-	return (*little == '\0');
-}
+	int	i;
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
-{
-	if (*little == 0)
-		return ((char *) big);
-	while (len && *big)
+	if (!tab)
+		return (NULL);
+	i = 0;
+	while (tab[i])
 	{
-		if (ft_match(big, little, len))
-			return ((char *) big);
-		big++;
-		len--;
+		free(tab[i]);
+		i++;
 	}
+	free(tab);
 	return (NULL);
 }
 
-char	*ft_grep(char **tab, char *word)
+int	ft_tablen(void **tab)
 {
-	if (!word || *word == 0)
-		return (tab[0]);
-	while (*tab)
-	{
-		if (ft_match(*tab, word, ft_strlen(*tab)))
-			return (*tab);
-		tab++;
-	}
-	return (NULL);
+	int	len;
+
+	if (!tab)
+		return (0);
+	len = 0;
+	while (tab[len])
+		len++;
+	return (len);
+}
+
+void	ft_copytab(void **dest, void **src)
+{
+	int		srclen;
+
+	srclen = ft_tablen(src);
+	ft_memcpy(dest, src, srclen);
 }
