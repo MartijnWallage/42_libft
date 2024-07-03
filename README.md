@@ -12,13 +12,13 @@ A library of common C functions used in the Core Curriculum of the 42 school.
 
 ### Char checks and converts
 
-- `int  ft_isalpha(int c)` : is the value of c, understood as a char, a letter?
-- `int  ft_isdigit(int c)` : is the value of c, understood as a char, a digit?
-- `int  ft_isalnum(int c)` : is the value of c, understood as a char, an alphanumeric character?
-- `int  ft_isascii(int c)` : is the value of c, understood as a char, on the ASCII chart?
-- `int  ft_isprint(int c)` : is the value of c, understood as a char, a printable character?
-- `int  ft_toupper(int c)` : convert c, understood as a char, to uppercase.
-- `int  ft_tolower(int c)` : convert c, understood as a char, to lowercase.
+- `int  ft_isalpha(int c)` : is c a letter?
+- `int  ft_isdigit(int c)` : is c a digit?
+- `int  ft_isalnum(int c)` : is c an alphanumeric character?
+- `int  ft_isascii(int c)` : is c on the ASCII chart?
+- `int  ft_isprint(int c)` : is c a printable character?
+- `int  ft_toupper(int c)` : convert c to uppercase.
+- `int  ft_tolower(int c)` : convert c to lowercase.
 
 ### Memory functions
  
